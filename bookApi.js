@@ -31,4 +31,14 @@ router.put('/:id', (req, res) => {
     res.json({message:"Book Updated!"})
 })
 
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    booksData.forEach((el, idx)=>{
+        if (el.id === parseInt(id)){
+            booksData.splice(idx)
+        }
+    });
+    res.json({message: `Book ${id} Deleted!`});
+})
+
 module.exports = router;
